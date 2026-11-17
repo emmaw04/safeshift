@@ -1,0 +1,41 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Data & model files
+data/
+checkpoints/
+outputs/
+*.tar
+*.tar.gz
+*.gz
+*.zip
+*.h5
+*.pt
+*.pth
+*.ckpt
+
+# Notebooks
+notebooks/data/
+.ipynb_checkpoints/
+
+# Literature / PDFs
+literature/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
