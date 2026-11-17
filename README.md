@@ -1,6 +1,6 @@
 # SafeShift
 
-Benchmarking test-time adaptation methods on CIFAR-100-C to see how well models can cope with distribution shift at inference time — without retraining.
+Benchmarking test-time adaptation methods on CIFAR-100-C to see how well models can cope with distribution shift at inference time, without retraining.
 
 The idea is simple: a model trained on clean data will often fall apart when it sees corrupted or shifted inputs in the real world. Test-time adaptation (TTA) tries to fix that by adapting the model on the fly using only the incoming test data. This project implements and compares a few popular TTA methods to see what actually works, what breaks, and under what conditions.
 
@@ -8,11 +8,11 @@ The idea is simple: a model trained on clean data will often fall apart when it 
 
 | Method | Paper | Status |
 |--------|-------|--------|
-| Source (no adaptation) | — | 🔧 In progress |
-| [Tent](https://arxiv.org/abs/2006.10726) | Wang et al., 2021 | 🔧 In progress |
-| [EATA](https://arxiv.org/abs/2204.02610) | Niu et al., 2022 | 🔧 In progress |
+| Source (no adaptation) |  | In progress |
+| [Tent](https://arxiv.org/abs/2006.10726) | Wang et al., 2021 | In progress |
+| [EATA](https://arxiv.org/abs/2204.02610) | Niu et al., 2022 | In progress |
 
-**Source** is the baseline — just evaluate the pretrained model on corrupted data with no adaptation at all. **Tent** minimises the entropy of model predictions by updating the batch norm parameters at test time. **EATA** builds on that with sample-aware entropy filtering and anti-forgetting regularisation to keep things more stable.
+**Source** is the baseline, just evaluate the pretrained model on corrupted data with no adaptation at all. **Tent** minimises the entropy of model predictions by updating the batch norm parameters at test time. **EATA** builds on that with sample-aware entropy filtering and anti-forgetting regularisation to keep things more stable.
 
 ## Dataset
 
@@ -84,10 +84,10 @@ python scripts/aggregate_results.py
 
 ## Current Status
 
-🚧 **Work in progress.** The data pipeline for CIFAR-100 and CIFAR-100-C is done. Currently working on the source model training loop and adaptation method implementations. Configs and evaluation scripts are still being fleshed out.
+**Work in progress.** The data pipeline for CIFAR-100 and CIFAR-100-C is done. Currently working on the source model training loop and adaptation method implementations. Configs and evaluation scripts are still being fleshed out.
 
 ## References
 
-- Wang et al. — [Tent: Fully Test-Time Adaptation by Entropy Minimization](https://arxiv.org/abs/2006.10726) (ICLR 2021)
-- Niu et al. — [Efficient Test-Time Model Adaptation without Forgetting](https://arxiv.org/abs/2204.02610) (ICML 2022)
-- Hendrycks & Dietterich — [Benchmarking Neural Network Robustness to Common Corruptions and Perturbations](https://arxiv.org/abs/1903.12261) (ICLR 2019)
+- Wang et al. [Tent: Fully Test-Time Adaptation by Entropy Minimization](https://arxiv.org/abs/2006.10726) (ICLR 2021)
+- Niu et al. [Efficient Test-Time Model Adaptation without Forgetting](https://arxiv.org/abs/2204.02610) (ICML 2022)
+- Hendrycks & Dietterich [Benchmarking Neural Network Robustness to Common Corruptions and Perturbations](https://arxiv.org/abs/1903.12261) (ICLR 2019)
